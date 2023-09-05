@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
+ /* 【通用元件】 */
+
+*, *:before, *:after{
+    /* border: solid black 1px; */
+    font-family: 'League Spartan', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+p{
+    font-size: 22px;
+    color: beige;
+}
+
+.btn {
+    border-radius: 0;
+    font-size: 24px;
+    letter-spacing: 0.06em;
+    border: 2px solid #3EA256;
+    color: #3EA256;
+    background-color: transparent;
+    padding: 4px 16px 0px 16px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+.btn:hover {
+    background-color: transparent;
+    color: #3EA256;
+    border: 2px solid #3EA256;
+    box-shadow: 0px 3px 0px #3EA256;
+  }
+
+
+/* header:navbar */
+
+header{
+    background-color: rgb(249, 249, 225);
+    height: 80px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+header nav img{
+    margin-top: 12px;
+    width: 135px;
+}
+
+header li{
+    margin: 0 34px;
+    font-size: 24px;
+    display: flex;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+}
+
+header .nav-item{
+    position: relative;
+    display: inline-block;
+    line-height: 1.5em;
+    height: 35px;
+}
+  
+header .nav-item::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(27, 27, 27);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+header .nav-item:hover::after {
+    transform: scaleX(1);
+}
+
+header ul{
+    margin-top: 12px;
+    margin-left: 150px;
+}
+
+header #navbtn{
+    border: 2px solid rgb(27, 27, 27);
+    margin-left: 150px;
+    background-color: rgb(27, 27, 27);
+    color: beige;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    padding: 6px 20px 8px 20px;
+    height: 40px;
+    margin-top: 2px;
+    font-weight: 300;
+    transition: all 0.3s ease-in-out;
+}
+
+#navbtn:hover {
+    background-color: transparent;
+    color: rgb(27, 27, 27);
+    border: 2px solid rgb(27, 27, 27);
+    box-shadow: 0px 3px 0px rgb(27, 27, 27);
+  }
+
+/* 循環跑馬燈 */
+.promo-lines {
+  position: relative;
+  top: -200px;
+  min-height: 0px;
+  z-index: 15;
+}
+
+.line-text {
+  font-size: 23px;
+  text-align: center;
+  color: #FFFB00;
+  text-transform: uppercase;
+  white-space: nowrap;
+  animation: animate-first-screen 35s -30s linear infinite;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+}
+
+.line-text:nth-child(2) {
+  animation: animate-second-screen 35s -16s linear infinite;
+}
+
+.line {
+  position: absolute;
+  display: flex;
+  width: 1650px;
+  overflow: hidden;
+}
+
+.line-red {
+  background: #FF87FD;
+  height: 55px;
+  line-height: 20px;
+  z-index: 2;
+  transform: rotate(4deg) translate(-200px, 100px);
+  top: 65px;
+}
+
+.line-red .line-text {
+  background: #FF87FD;
+}
+
+.line-violet {
+  background: #A0AAFF;
+  height: 50px;
+  line-height: 20px;
+  z-index: 1;
+  transform: rotate(-2deg) translate(-200px, 100px);
+  top: 55px;
+}
+
+.line-violet .line-text {
+  background: #A0AAFF;
+}
+
+@keyframes animate-first-screen {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+@keyframes animate-second-screen {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-200%);
+  }
+}
+
+@media (max-width: 769px){
+  .promo-lines {
+      min-height: 30%;
+  }
+  .line-red {
+      top: -73px;
+      height: 10%;
+  }
+  .line-violet {
+      top: -115px;
+      height: 10%;
+  }
+  .line-text {
+      font-size: 3rem;
+      line-height: 10%;
+  }
+}
+
+ /* 【引言頁面】 */
+
+#intro {
+    text-align: center;
+    height: 850px;
+    width: 100%;
+    background-image: url(../img/intro_bgi.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#intro .container{
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+}
+
+#intro h1{
+    font-weight: 800;
+    line-height: 1.5;
+    margin-top: 100px;
+    color: beige;
+}
+
+#intro a{
+    color: beige;
+    font-size: 26px;
+    text-decoration: none;
+    letter-spacing: 0.125em;
+    text-transform: uppercase;
+    border-bottom: 1.5px solid;
+    line-height: 1em;
+    cursor: pointer;
+    transition: color .2s ease-in-out,border .2s ease-in-out ,opacity .2s ease-in-out;
+    display: inline-block;
+    width: fit-content;
+    position: relative;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+#intro a:hover {
+    border-bottom-color: beige;
+    animation: bounce 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-8px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(-5.5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+
+ /* 【自我介紹頁面】 */
+
+ #introduction {
+    height: 810px;
+    background-color: #3EA256;
+    z-index: 0;
+ }
+
+ #introduction #content{
+    height: 800px;
+    width: 1000px;
+ }
+
+ #introduction #title{
+    font-weight: 800;
+    margin: 0;
+    padding-top: 10%;
+    padding-bottom: 20px;
+    color: beige;
+ }
+
+ #introduction #card{
+    height: 200%;
+    background-color: beige;
+    border-radius: 25px;
+ }
+
+ .custom-width {
+    width: 82%;
+    margin: 0 auto;
+  }
+
+ #introduction .item{
+    padding: 40px 0px 20px 20px;
+    margin: 40px 20px 20px 10px;
+ }
+
+ #introduction #headshot{
+    width: 320px;
+    height: 320px;
+    background-color: plum;
+    margin: 80px 14px 80px 50px;
+ }
+
+ #introduction p{
+    margin-top: 40px;
+    line-height: 28px;
+    text-align: justify;
+ }
+
+ #introduction a{
+    margin-top: 14px;
+    margin-bottom: 35px;
+ }
+
+ #introduction h1{
+    font-weight: 800;
+ }
+
+ h5{
+    color: rgb(89, 89, 89)
+ }
+
+/* 服務項目 */
+
+#service{
+    background-color: #446CD3;
+    height: 700px;
+}
+
+#service img{
+    width: 290px;
+    height: 290px;
+    border-radius: 1%;
+    border: solid 14px white;
+}
+
+#service h1{
+    color: azure;
+    font-weight: 800;
+    margin: 0;
+    padding-top: 85px;
+    padding-bottom: 45px;
+}
+
+ #service #content .btn{
+    background-color: rgb(205, 255, 67);
+    color: rgb(27, 27, 27);
+    border: none;
+    justify-self: center;
+    position: relative;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+ }
+
+ #service #content .btn:hover{
+  box-shadow: 0px 3px 0px rgb(159, 217, 0);
+ }
+
+
+ #service #readMore{
+    color: azure;
+    border: 2px solid azure;
+  }
+
+ #service #readMore:hover{
+    box-shadow: 0px 3px 0px azure;}
+
+ #content {
+  margin-bottom: 15px; 
+}
+
+/* 連結至Instagram */
+.instagram {
+  width: 100%;
+  height: 126%;
+  background-color: rgb(255, 255, 238);
+}
+
+.instagram img{
+  width: 55%;
+  height: 55%;
+}
+
+.instagram h1{
+  font-weight: 800;
+  line-height: 1.5;
+  padding-top: 60px;
+  color: rgb(238, 36, 18);
+}
+
+.instagram a{
+  color: rgb(238, 36, 18);
+  padding: 16px;
+  font-size: 30px;
+  text-decoration: none;
+  letter-spacing: 1.3px;
+}
+
+.instagram .btn{
+  color:  rgb(238, 36, 18);
+  border: 2px solid  rgb(238, 36, 18);
+}
+
+.instagram .btn:hover{
+  box-shadow: 0px 3px 0px  rgb(238, 36, 18);}
+
+
+
+/* footer */
+
+
+footer{
+  background-color: #0b0b0b;
+  justify-content: center;
+  color: beige;
+  height: 280px;
+  padding: 45px;
+  font-size: 20px;
+}
+
+footer a{
+  color: beige;
+  text-decoration: none;
+}
+
+footer .mail{
+  padding: 12px;
+}
+
+footer .icon{
+  padding-left: 0px !important;
+}
+
+footer .logo{
+  font-size: 48px;
+}
+
+footer .credit{
+  font-size: 14px;
+  margin-bottom: 50px;
+}
